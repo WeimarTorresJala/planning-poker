@@ -1,6 +1,7 @@
 import { Router } from 'express';
+import { createQuestion, deleteQuetion, getQuestions } from '../controllers/question.controller';
 import { createSession, getSessions, getSession, deleteSession } from '../controllers/session.controller';
-import { createType, getType, getTypes } from '../controllers/types.controller';
+import { createType, getType, getTypes } from '../controllers/type.controller';
 
 const router = Router();
 
@@ -18,5 +19,12 @@ router.route('/types')
 
 router.route('/types/:id')
     .get(getType)
+
+router.route('/sessions/:id/questions')
+    .get(getQuestions)
+    .post(createQuestion)
+
+router.route('/questions/:id')
+    .delete(deleteQuetion)
 
 export default router;
