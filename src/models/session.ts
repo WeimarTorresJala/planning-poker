@@ -2,7 +2,7 @@ import { Schema, model, Document } from 'mongoose';
 
 const schema = new Schema ({
     name: String,
-    typeId: Number,
+    typeId: String,
     questionsId: [
         String
     ],
@@ -11,7 +11,7 @@ const schema = new Schema ({
 
 interface ISession extends Document {
     name: string;
-    typeId: number;
+    typeId: string;
     questionsId: [
         string
     ];

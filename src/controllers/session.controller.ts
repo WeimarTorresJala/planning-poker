@@ -1,4 +1,4 @@
-import { json, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import session from '../models/session';
 
@@ -19,7 +19,7 @@ export async function createSession(req: Request, res: Response): Promise<Respon
 
     const newSession = new session({
         name: name,
-        typeId: 1,
+        typeId: type,
         questionsId: [
             uuidv4(),
             uuidv4()
