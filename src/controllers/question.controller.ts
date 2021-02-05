@@ -23,6 +23,22 @@ export async function createQuestion(req: Request, res: Response): Promise<Respo
     });
 }
 
+export async function updateQuestion(req: Request, res: Response): Promise<Response> {
+    const actualQuestion = await questionModel.findById(req.params.id);
+    const { userName, number } = req.body;
+    console.log(actualQuestion);
+    
+    actualQuestion.votes.push([ userName, number ]);
+    const updatedQuestion = await questionModel.findByIdAndUpdate(req.params.id, {
+        votes: actualQuestion.votes,
+    }, { new: true });
+
+    return  res.json({
+        message: "Question updated",
+        updatedQuestion
+    });
+}
+
 export async function deleteQuetion(req: Request, res: Response): Promise<Response> {
     const deletedQuestion = await questionModel.findByIdAndRemove(req.params.id);
 

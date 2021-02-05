@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createQuestion, deleteQuetion, getQuestions } from '../controllers/question.controller';
+import { createQuestion, deleteQuetion, getQuestions, updateQuestion } from '../controllers/question.controller';
 import { createSession, getSessions, getSession, deleteSession } from '../controllers/session.controller';
 import { createType, getType, getTypes } from '../controllers/type.controller';
 
@@ -25,6 +25,7 @@ router.route('/sessions/:id/questions')
     .post(createQuestion)
 
 router.route('/questions/:id')
+    .put(updateQuestion)
     .delete(deleteQuetion)
 
 export default router;

@@ -32,17 +32,6 @@ export async function createSession(req: Request, res: Response): Promise<Respon
     });
 }
 
-// export async function updateSessionQuestion(sessionId: string, questionId: string): Promise<boolean> {
-//     const actualSession = await session.findById(sessionId);
-
-//     actualSession.questionsId.push(questionId);
-//     const updatedSession = await session.findByIdAndUpdate(sessionId, {
-//         questionsId: actualSession.questionsId,
-//     }, { new: true });
-
-//     return true;
-// }
-
 // export async function updateSession(req: Request, res: Response): Promise<Response> {
 //     const { name, type } = req.body;
 

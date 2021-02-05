@@ -9,7 +9,7 @@ const schema = new Schema ({
 interface IQuestion extends Document {
     sessionId: string;
     question: string;
-    questionsId: [ [ string, number ] ];
+    votes: [ [ string, number ] ];
 }
 
 export default model<IQuestion>('question', schema);
